@@ -20,11 +20,9 @@ install:
     - sudo unzip /usr/local/share/chromedriver_linux64.zip -d /usr/local/share
     - sudo rm /usr/local/share/chromedriver_linux64.zip
 
-after_install:
-    - java -jar -Dwebdriver.chrome.driver="/usr/local/share/chromedriver" /usr/local/share/selenium/selenium-server-standalone-3.7.1.jar >/dev/null &
-
 before_script:
     - java -version
+    - java -jar -Dwebdriver.chrome.driver="/usr/local/share/chromedriver" /usr/local/share/selenium/selenium-server-standalone-3.7.1.jar >/dev/null &
     - travis_retry composer self-update
     - travis_retry composer install --no-interaction --prefer-source --dev
 
