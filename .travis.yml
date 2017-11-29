@@ -1,9 +1,16 @@
+dist: trusty
+addons:
+  chrome: stable
+before_install:
+  - # start your web application and listen on `localhost`
+  - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
+
 language: php
 
 php:
     - 7.1
 
-jdk: oraclejdk8
+#jdk: oraclejdk8
 
 before_script:
     - travis_retry composer self-update
