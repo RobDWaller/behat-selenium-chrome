@@ -24,9 +24,10 @@ before_script:
     - java -version
     - #java -jar -Dwebdriver.chrome.driver="/usr/local/share/chromedriver" /usr/local/share/selenium/selenium-server-standalone-3.7.1.jar >/dev/null &
     - php -S 127.0.0.1:8000 >/dev/null &
+    - sleep 3
     - #travis_retry composer self-update
     - #travis_retry composer install --no-interaction --prefer-source --dev
 
 script:
     - #vendor/bin/behat --verbose
-    - curl 127.0.0.1 -P 8000
+    - curl 127.0.0.1
