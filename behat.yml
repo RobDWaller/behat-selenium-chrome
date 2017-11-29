@@ -1,7 +1,7 @@
 default:
     extensions:
         Behat\MinkExtension:
-            base_url: http://192.168.213.10
+            base_url: http://localhost
             javascript_session: selenium2
             browser_name: 'chrome'
             selenium2:
