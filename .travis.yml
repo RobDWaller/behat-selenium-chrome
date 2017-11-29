@@ -30,5 +30,4 @@ before_script:
     - cd ../
 
 script:
-    - vendor/bin/behat --verbose
-    - #curl 127.0.0.1:8000
+    - vendor/bin/behat
