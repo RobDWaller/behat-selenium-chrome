@@ -1,19 +1,30 @@
 dist: trusty
 addons:
   chrome: stable
-before_install:
-  - # start your web application and listen on `localhost`
-  - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
 
 language: php
 
 php:
     - 7.1
 
-#jdk: oraclejdk8
+jdk: oraclejdk8
+
+before_install:
+  - # start your web application and listen on `localhost`
+  - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
+
+install:
+    - sudo mkdir /usr/local/share/selenium
+    - sudo wget http://selenium-release.storage.googleapis.com/3.7/selenium-server-standalone-3.7.1.jar -P /usr/local/share/selenium
+    - sudo wget https://chromedriver.storage.googleapis.com/2.33/chromedriver_linux64.zip -P /usr/local/share
+    - sudo unzip /usr/local/share/chromedriver_linux64.zip -d /usr/local/share
+    - sudo rm /usr/local/share/chromedriver_linux64.zip
+
+after_install:
+    - java -jar -Dwebdriver.chrome.driver="/usr/local/share/chromedriver" /usr/local/share/selenium/selenium-server-standalone-3.7.1.jar >/dev/null &
 
 before_script:
-    #- php -S 127.0.0.1:8000
+    - java -version
     - travis_retry composer self-update
     - travis_retry composer install --no-interaction --prefer-source --dev
 
