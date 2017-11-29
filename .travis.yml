@@ -21,12 +21,12 @@ install:
     - sudo rm /usr/local/share/chromedriver_linux64.zip
     - java -jar -Dwebdriver.chrome.driver="/usr/local/share/chromedriver" /usr/local/share/selenium/selenium-server-standalone-3.7.1.jar >/dev/null &
 
-before_script:    
+before_script:
+    - travis_retry composer self-update
+    - travis_retry composer install --no-interaction --prefer-source --dev
     - cd public
     - php -S 127.0.0.1:8000 >/dev/null &
     - sleep 3
-    - travis_retry composer self-update
-    - travis_retry composer install --no-interaction --prefer-source --dev
 
 script:
     - vendor/bin/behat --verbose
