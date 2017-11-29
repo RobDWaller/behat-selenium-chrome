@@ -1,0 +1,13 @@
+default:
+    extensions:
+        Behat\MinkExtension:
+            base_url: http://192.168.213.10
+            javascript_session: selenium2
+            browser_name: 'chrome'
+            selenium2:
+                capabilities: { "browserName": "chrome", "browser": "chrome", "version": "62", 'chrome': {'switches':['--no-sandbox', '--headless']}}
+    suites:
+        default:
+            contexts:
+                - FeatureContext
+                - Behat\MinkExtension\Context\MinkContext

@@ -1,0 +1,20 @@
+{
+    "name": "robdwaller/behat-selenium-chrome",
+    "description": "A bootstrap library to get you started with Behat Selenium and Chrome so you can run functional UI tests.",
+    "license": "MIT",
+    "type": "library",
+    "keywords": ["behat", "php", "testing", "selenium", "chrome"],
+    "authors": [
+        {
+            "name": "Rob Waller",
+            "email": "rdwaller1984@googlemail.com"
+        }
+    ],
+    "require": {},
+    "require-dev": {
+        "behat/behat": "3.4.*",
+        "phpunit/phpunit": "6.4.*",
+        "behat/mink-extension": "2.2.*",
+        "behat/mink-selenium2-driver": "1.3.*"
+    }
+}
