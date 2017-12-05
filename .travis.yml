@@ -1,33 +1,49 @@
+# Use the Trusty Ubuntu distribution AKA Ubuntu 14.04
 dist: trusty
+
+# Add Google Chrome to installation
 addons:
   chrome: stable
 
+# Run with PHP 7.1
 language: php
 
 php:
     - 7.1
 
+# Make sure Java 8 is installed
 jdk: oraclejdk8
 
-before_install:
-  - # start your web application and listen on `localhost`
-  - # google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
-
+# Install Selnium and the Selenium Chrome Driver and start Selenium
 install:
+    # Make Selenium directory
     - sudo mkdir /usr/local/share/selenium
+    # Download Selenium to Selenium directory
     - sudo wget http://selenium-release.storage.googleapis.com/3.7/selenium-server-standalone-3.7.1.jar -P /usr/local/share/selenium
+    # Download Selenium Chrome driver zip file
     - sudo wget https://chromedriver.storage.googleapis.com/2.33/chromedriver_linux64.zip -P /usr/local/share
+    # Unzip Chrome driver
     - sudo unzip /usr/local/share/chromedriver_linux64.zip -d /usr/local/share
+    # Delete Chrome driver zip
     - sudo rm /usr/local/share/chromedriver_linux64.zip
+    # Run Selenium with Chrome driver, and attempt to suppress output
     - java -jar -Dwebdriver.chrome.driver="/usr/local/share/chromedriver" /usr/local/share/selenium/selenium-server-standalone-3.7.1.jar >/dev/null &
 
+# Run Composer and start PHP Server
 before_script:
+    # Update Composer
     - travis_retry composer self-update
+    # Run Composer Install
     - travis_retry composer install --no-interaction --prefer-source --dev
+    # Move into public directory
     - cd public
+    # Start PHP server in public directory so requests route correctly and supress output
     - php -S 127.0.0.1:8000 >/dev/null &
+    # Sleep to make sure PHP server has started
     - sleep 3
+    # Move out of public directory so Behat can be executed
     - cd ../
 
+# Run Behat
 script:
     - vendor/bin/behat

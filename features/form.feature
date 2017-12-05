@@ -8,3 +8,8 @@ Feature: Form Submission
         When I fill in "name" with "John Smith"
         And I press "submit"
         Then I should see "Hello John Smith"
+
+    Scenario: Subimt Form Error Message
+        Given I am on "/index.php"
+        When I press "submit"
+        Then I should see "Hello you didn't submit your name..."
