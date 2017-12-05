@@ -1,9 +1,9 @@
-# Behat Selenium and Chrome Setup Library
+# Behat, Selenium and Chrome Setup Library
 [![Build Status](https://travis-ci.org/RobDWaller/behat-selenium-chrome.svg?branch=master)](https://travis-ci.org/RobDWaller/behat-selenium-chrome)
 
-This is a simple Library that shows you how to setup Behat, Selenium and Chrome on an Ubuntu environment. This setup allows you to run automated BDD tests on the UI of your web application.
+This is a simple Library that shows you how to setup Behat, Selenium and Chrome on an Ubuntu environment. This setup allows you to run automated BDD tests on the UI of your web applications.
 
-You can probably get Behat and Selenium working with Chrome based simply on the `.travis.yml` file within this project. However, I advise for a clearer description of the setup that you refer to my blog post on the subject.
+You can probably get Behat and Selenium working with Chrome based simply on the `.travis.yml` file within this project. However, I advise you refer to my blog post on the subject which provides a clearer description of the setup.
 
 - [How to Set Up Testing With Behat, Selenium and Chrome](http://rbrt.wllr.info/2017/11/22/how-setup-testing-behat-selenium-chrome.html)
 
@@ -56,5 +56,5 @@ Feature: Form Submission
 ```
 
 ## Author
-Rob Waller <rdwaller1984@googlemail.com>
-[@RobDWaller](https://twitter.com/RobDWaller)
+- Rob Waller <rdwaller1984@googlemail.com>
+- [@RobDWaller](https://twitter.com/RobDWaller)
