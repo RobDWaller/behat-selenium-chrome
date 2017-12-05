@@ -1,4 +1,5 @@
 # Behat Selenium and Chrome Setup Library
+[![Build Status](https://travis-ci.org/RobDWaller/behat-selenium-chrome.svg?branch=master)](https://travis-ci.org/RobDWaller/behat-selenium-chrome)
 
 This is a simple Library that shows you how to setup Behat, Selenium and Chrome on a Ubuntu environment. This setup allows you to run Automated BDD tests on the UI of your web application.
 
@@ -18,6 +19,28 @@ Behat is a Cucumber based BDD testing framework for PHP. For more information on
 This library provides a very simple example of how to get Behat and Selenium up and running. Essentially it spins up an environment in Travis, installs Selenium and runs Behat.
 
 The Chrome headless browser which Selenium interacts with then tests a simple form submission hosted on `public/index.php` and the relevant outputted message hosted on `public/result.php`.
+
+## The Tests
+
+The Behat tests can be found in `features/form.feature`.
+
+```yaml
+Feature: Form Submission
+    In order to see a fun Hello 'Name' message
+    As a website user
+    I need to be able to visit the index page and submit the form with my name
+
+    Scenario: Submit Form
+        Given I am on "/index.php"
+        When I fill in "name" with "John Smith"
+        And I press "submit"
+        Then I should see "Hello John Smith"
+
+    Scenario: Subimt Form Error Message
+        Given I am on "/index.php"
+        When I press "submit"
+        Then I should see "Hello you didn't submit your name..."
+```
 
 ## Author
 Rob Waller <rdwaller1984@googlemail.com>
