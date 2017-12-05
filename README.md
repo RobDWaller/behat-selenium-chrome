@@ -24,7 +24,14 @@ The Chrome headless browser which Selenium interacts with then tests a simple fo
 
 ## Run Library Locally
 
-To run this library locally you'll need a local environment tool such as Scotchbox or Homestead
+To run this library locally you'll need a local environment tool such as [Scotchbox](https://box.scotch.io/) or [Homestead](https://laravel.com/docs/5.5/homestead).
+
+You'll need to follow the installation steps defined in my [blog post on the topic]() and you'll need to edit the `base_url` field in the `behat.yml` file to match your local environment setup.
+
+```yaml
+# Edit this line...
+base_url: http://127.0.0.1:8000
+```
 
 ## The Tests
 
