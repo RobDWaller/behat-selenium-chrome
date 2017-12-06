@@ -27,7 +27,7 @@ install:
     # Delete Chrome driver zip
     - sudo rm /usr/local/share/chromedriver_linux64.zip
     # Run Selenium with Chrome driver, and attempt to suppress output
-    - java -jar -Dwebdriver.chrome.driver="/usr/local/share/chromedriver" /usr/local/share/selenium/selenium-server-standalone-3.7.1.jar >/dev/null &
+    - java -jar -Dwebdriver.chrome.driver="/usr/local/share/chromedriver" /usr/local/share/selenium/selenium-server-standalone-3.7.1.jar >/dev/null 2>&1 &
 
 # Run Composer and start PHP Server
 before_script:
@@ -38,7 +38,7 @@ before_script:
     # Move into public directory
     - cd public
     # Start PHP server in public directory so requests route correctly and supress output
-    - php -S 127.0.0.1:8000 >/dev/null &
+    - php -S 127.0.0.1:8000 >/dev/null 2>&1 &
     # Sleep to make sure PHP server has started
     - sleep 3
     # Move out of public directory so Behat can be executed
