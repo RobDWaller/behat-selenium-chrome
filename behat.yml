@@ -6,7 +6,7 @@ default:
             javascript_session: selenium2
             browser_name: 'chrome'
             selenium2:
-                capabilities: { "browserName": "chrome", "browser": "chrome", "version": "62", 'chrome': {'switches':['--no-sandbox', '--headless']}}
+                capabilities: { "browserName": "chrome", "browser": "chrome", "version": "65", 'chrome': {'switches':['--no-sandbox', '--headless']}}
     suites:
         default:
             contexts:
