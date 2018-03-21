@@ -19,15 +19,15 @@ install:
     # Make Selenium directory
     - sudo mkdir /usr/local/share/selenium
     # Download Selenium to Selenium directory
-    - sudo wget http://selenium-release.storage.googleapis.com/3.7/selenium-server-standalone-3.7.1.jar -P /usr/local/share/selenium
+    - sudo wget http://selenium-release.storage.googleapis.com/3.11/selenium-server-standalone-3.11.0.jar -P /usr/local/share/selenium
     # Download Selenium Chrome driver zip file
-    - sudo wget https://chromedriver.storage.googleapis.com/2.33/chromedriver_linux64.zip -P /usr/local/share
+    - sudo wget https://chromedriver.storage.googleapis.com/2.37/chromedriver_linux64.zip -P /usr/local/share
     # Unzip Chrome driver
     - sudo unzip /usr/local/share/chromedriver_linux64.zip -d /usr/local/share
     # Delete Chrome driver zip
     - sudo rm /usr/local/share/chromedriver_linux64.zip
     # Run Selenium with Chrome driver, and attempt to suppress output
-    - java -jar -Dwebdriver.chrome.driver="/usr/local/share/chromedriver" /usr/local/share/selenium/selenium-server-standalone-3.7.1.jar >/dev/null 2>&1 &
+    - java -jar -Dwebdriver.chrome.driver="/usr/local/share/chromedriver" /usr/local/share/selenium/selenium-server-standalone-3.11.0.jar >/dev/null 2>&1 &
 
 # Run Composer and start PHP Server
 before_script:
